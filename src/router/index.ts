@@ -15,7 +15,8 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  // 指定二级目录为 web-tools
+  history: createWebHistory('/web-tools/'), 
   routes
 });
 
