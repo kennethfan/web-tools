@@ -24,6 +24,7 @@ jobs:
     - name: build
       run: |
         # build dist
+        node -v
         npm run build 
                 
     - name: push _book to branch gh-pages 
