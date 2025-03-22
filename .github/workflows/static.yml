@@ -29,7 +29,7 @@ jobs:
         node -v
         npm run build 
                 
-    - name: push _book to branch gh-pages 
+    - name: push docs to branch gh-pages 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         MYEMAIL: kennethfan137@gmail.com                  
@@ -38,8 +38,8 @@ jobs:
         git config --global user.email "${{ env.MYEMAIL }}"
         git config --global user.name "${{ env.MYNAME }}"
         git checkout -b gh-pages 
-        mv dist static
-        git add static
+        mv dist docs
+        git add docs
         git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
         git push -f --set-upstream origin gh-pages 
  
