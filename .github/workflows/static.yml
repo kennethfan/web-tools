@@ -38,7 +38,8 @@ jobs:
         git config --global user.email "${{ env.MYEMAIL }}"
         git config --global user.name "${{ env.MYNAME }}"
         git checkout -b gh-pages 
-        git add dist
+        mv dist static
+        git add static
         git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
         git push -f --set-upstream origin gh-pages 
  
