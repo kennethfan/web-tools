@@ -1,4 +1,4 @@
-name: auto-generate-gitbook
+name: build static
 on:                                 #在master分支上进行push时触发  
   push:
     branches:
@@ -15,7 +15,9 @@ jobs:
         ref: master
             
     - name: install nodejs
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
+      with:
+          node-version: 18.16.0
       
     - name: install packages
       run: |
