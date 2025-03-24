@@ -21,6 +21,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/urlencode',
     name: 'UrlEncodeTool',
     component: () => import('../views/UrlEncodeTool.vue')
+  },
+  {
+    path: '/time-stamp',
+    name: 'TimeStampTool',
+    component: () => import('../views/TimeStampTool.vue')
   }
 ];
 
