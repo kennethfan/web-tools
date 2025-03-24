@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Web 工具集 - 首页</h1>
+    <h1>Indexes</h1>
     <nav>
       <ul class="tool-grid">
         <li><router-link to="/json-formatter">JSON 格式化</router-link></li>
@@ -37,5 +37,10 @@
 
 .tool-grid li a:hover {
   text-decoration: underline;
+}
+
+/* 添加 h1 文字居中样式 */
+h1 {
+  text-align: center;
 }
 </style>
