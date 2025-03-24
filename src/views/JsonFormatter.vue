@@ -1,9 +1,13 @@
 <template>
-  <div>
-    <h2>JSON 格式化</h2>
-    <textarea v-model="inputJson" placeholder="请输入 JSON 数据"></textarea>
-    <button @click="formatJson">格式化</button>
-    <pre v-if="formattedJson">{{ formattedJson }}</pre>
+  <div class="json-formatter-container">
+    <div class="input-section">
+      <h2 class="section-title">JSON 格式化</h2>
+      <textarea v-model="inputJson" placeholder="请输入 JSON 数据" class="input-textarea"></textarea>
+      <button @click="formatJson" class="format-button">格式化</button>
+    </div>
+    <div class="output-section">
+      <pre v-if="formattedJson" class="output-pre">{{ formattedJson }}</pre>
+    </div>
   </div>
 </template>
 
@@ -29,21 +33,66 @@ const formatJson = () => {
 </script>
 
 <style scoped>
-textarea {
+.json-formatter-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-section,
+.output-section {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.input-textarea {
   width: 100%;
   height: 200px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
 }
 
-button {
+.format-button {
   padding: 10px 20px;
-  margin-bottom: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-pre {
+.format-button:hover {
+  background-color: #0056b3;
+}
+
+.output-pre {
   background-color: #f4f4f4;
   padding: 10px;
   border: 1px solid #ccc;
+  border-radius: 4px;
   white-space: pre-wrap;
+  height: auto;
+  min-height: 200px;
+  font-size: 16px;
 }
 </style>
