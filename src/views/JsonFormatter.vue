@@ -1,12 +1,18 @@
 <template>
   <div class="json-formatter-container">
-    <div class="input-section">
-      <h2 class="section-title">JSON 格式化</h2>
-      <textarea v-model="inputJson" placeholder="请输入 JSON 数据" class="input-textarea"></textarea>
-      <button @click="formatJson" class="format-button">格式化</button>
-    </div>
-    <div class="output-section">
-      <pre v-if="formattedJson" class="output-pre">{{ formattedJson }}</pre>
+    <h1 class="section-title">JSON 格式化</h1>
+    <div class="tool-wrapper">
+      <div class="input-section">
+        <textarea v-model="inputJson" placeholder="请输入 JSON 数据" class="input-textarea"></textarea>
+      </div>
+      
+      <div class="button-group">
+        <button @click="formatJson" class="format-button">格式化</button>
+      </div>
+
+      <div class="output-section">
+        <pre v-if="formattedJson" class="output-pre">{{ formattedJson }}</pre>
+      </div>
     </div>
   </div>
 </template>
@@ -34,16 +40,26 @@ const formatJson = () => {
 
 <style scoped>
 .json-formatter-container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.tool-wrapper {
+  display: flex;
+  gap: 20px;
+  height: 500px;
+}
+
+/* 新增按钮组样式 */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* 调整输入输出区域为等宽 */
 .input-section,
 .output-section {
   flex: 1;
@@ -56,13 +72,14 @@ const formatJson = () => {
 .section-title {
   color: #333;
   font-size: 24px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .input-textarea {
   width: 100%;
-  height: 200px;
-  margin-bottom: 15px;
+  height: 400px;
+  /* margin-bottom: 15px; */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -86,6 +103,7 @@ const formatJson = () => {
 }
 
 .output-pre {
+  margin-top: 0px;
   background-color: #f4f4f4;
   padding: 10px;
   border: 1px solid #ccc;
