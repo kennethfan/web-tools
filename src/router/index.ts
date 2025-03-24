@@ -16,6 +16,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/json-formatter',
     name: 'JsonFormatter',
     component: () => import('../views/JsonFormatter.vue')
+  },
+  {
+    path: '/urlencode',
+    name: 'UrlEncodeTool',
+    component: () => import('../views/UrlEncodeTool.vue')
   }
 ];
 

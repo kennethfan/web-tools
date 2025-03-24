@@ -5,6 +5,7 @@
       <ul class="tool-grid">
         <li><router-link to="/json-formatter">JSON 格式化</router-link></li>
         <li><router-link to="/base64">Base64 编解码</router-link></li>
+        <li><router-link to="/urlencode">URL 编解码</router-link></li>
       </ul>
     </nav>
   </div>
