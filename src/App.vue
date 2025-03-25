@@ -1,13 +1,24 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <h1>Web 工具集</h1>
+    <NavigationMenu />
+    <router-view />
   </div>
 </template>
 
 <script lang="ts" setup>
-// 这里可以添加后续的交互逻辑
+import NavigationMenu from './components/NavigationMenu.vue';
 </script>
 
 <style scoped>
-/* 可以根据需要保留或调整样式 */
+#app {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
 </style>
