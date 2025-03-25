@@ -25,6 +25,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/time-stamp',
     name: 'TimeStampTool',
     component: () => import('../views/TimeStampTool.vue')
+  },
+  {
+    path: '/qr-code-generator',
+    name: 'QrCodeGenerator',
+    component: () => import('../views/QrCodeGenerator.vue')
   }
 ];
 
