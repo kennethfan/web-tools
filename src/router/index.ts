@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
-// Define your routes
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -8,14 +7,14 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/Home.vue')
   },
   {
-    path: '/base64',
-    name: 'Base64Tool',
-    component: () => import('../views/Base64Tool.vue')
-  },
-  {
     path: '/json-formatter',
     name: 'JsonFormatter',
     component: () => import('../views/JsonFormatter.vue')
+  },
+  {
+    path: '/base64',
+    name: 'Base64Tool',
+    component: () => import('../views/Base64Tool.vue')
   },
   {
     path: '/urlencode',
@@ -30,7 +29,6 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  // 指定二级目录为 web-tools
   history: createWebHistory('/web-tools/'), 
   routes
 });

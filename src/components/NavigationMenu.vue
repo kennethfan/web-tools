@@ -1,16 +1,17 @@
 <template>
   <nav>
     <ul class="tool-grid">
-      <li><router-link to="/json-formatter">JSON 格式化</router-link></li>
-      <li><router-link to="/base64">Base64 编解码</router-link></li>
-      <li><router-link to="/urlencode">URL 编解码</router-link></li>
-      <li><router-link to="/time-stamp">时间戳转换</router-link></li>
+      <li><router-link to="/json-formatter" :class="{ 'active': $route.name === 'JsonFormatter' }">JSON 格式化</router-link></li>
+      <li><router-link to="/base64" :class="{ 'active': $route.name === 'Base64Tool' }">Base64 编解码</router-link></li>
+      <li><router-link to="/urlencode" :class="{ 'active': $route.name === 'UrlEncodeTool' }">URL 编解码</router-link></li>
+      <li><router-link to="/time-stamp" :class="{ 'active': $route.name === 'TimeStampTool' }">时间戳转换</router-link></li>
     </ul>
   </nav>
 </template>
 
 <script lang="ts" setup>
-// 导航菜单逻辑，目前为空
+import { useRoute } from 'vue-router';
+const route = useRoute();
 </script>
 
 <style scoped>
@@ -27,11 +28,28 @@
   border-radius: 8px;
   padding: 20px;
   text-align: center;
+  transition: all 0.3s ease; /* 添加过渡效果 */
 }
 
 .tool-grid li a {
   text-decoration: none;
   color: #007BFF;
   font-size: 18px;
+}
+
+/* 优化后的高亮样式 */
+.active {
+  /* background-color: #007BFF; */
+  /* color: white; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+  transform: scale(1.15); /* 放大 5% */
+}
+
+.tool-grid li:hover {
+  background-color: #e0e0e0; /* 鼠标悬停时的背景颜色 */
+}
+
+.tool-grid li a:hover {
+  color: #0056b3; /* 鼠标悬停时链接文字颜色 */
 }
 </style>
