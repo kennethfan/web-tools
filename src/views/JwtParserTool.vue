@@ -12,16 +12,27 @@
         <button @click="parseJwt" class="action-button">解析</button>
       </div>
 
-      <pre class="result-area">{{ parsedResult }}</pre>
+      <div class="result-container">
+        <div class="result-section">
+          <h3>Header</h3>
+          <pre class="json-display">{{ formattedHeader }}</pre>
+        </div>
+        <div class="result-section">
+          <h3>Payload</h3>
+          <pre class="json-display">{{ formattedPayload }}</pre>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+// 移除highlight.js相关导入
 import { ref } from 'vue';
 
 const jwtInput = ref('');
-const parsedResult = ref('');
+const formattedHeader = ref('');
+const formattedPayload = ref('');
 
 const parseJwt = () => {
   try {
@@ -36,10 +47,12 @@ const parseJwt = () => {
       return JSON.stringify(JSON.parse(decoded), null, 2);
     };
 
-    parsedResult.value = `Header:\n${parsePart(headerEncoded)}\n\nPayload:\n${parsePart(payloadEncoded)}`;
+    formattedHeader.value = parsePart(headerEncoded);
+    formattedPayload.value = parsePart(payloadEncoded);
     
   } catch (error) {
-    parsedResult.value = `解析错误: ${error instanceof Error ? error.message : '未知错误'}`;
+    formattedHeader.value = `解析错误: ${error instanceof Error ? error.message : '未知错误'}`;
+    formattedPayload.value = '';
   }
 };
 </script>
@@ -65,7 +78,7 @@ const parseJwt = () => {
   resize: vertical;
 }
 
-.result-area {
+/* .result-area {
   flex: 1;
   padding: 15px;
   border: 1px solid #ccc;
@@ -73,7 +86,7 @@ const parseJwt = () => {
   background-color: #f8f9fa;
   white-space: pre-wrap;
   overflow: auto;
-}
+} */
 
 /* 复用现有按钮样式 */
 .button-group {
@@ -95,5 +108,43 @@ const parseJwt = () => {
 
 .action-button:hover {
   background-color: #0056b3;
+}
+
+.result-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.result-area {
+  background-color: #1e1e1e;
+  color: #dcdcdc;
+  padding: 1rem;
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+}
+
+.language-json {
+  background: none !important;
+  padding: 0 !important;
+}
+</style>
+
+<style scoped>
+.json-display {
+  flex: 1;
+  padding: 15px;
+  border: 1px solid #2c3e50;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  white-space: pre-wrap;
+  overflow: auto;
+  font-family: 'Courier New', monospace;
+  line-height: 1.5;
+  color: #2c3e50;
+}
+
+.json-display::selection {
+  background: #b3d4fc;
 }
 </style>
