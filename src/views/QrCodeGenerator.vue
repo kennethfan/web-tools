@@ -10,7 +10,7 @@
           class="textarea"
         ></textarea>
         <div class="input-group">
-          <label for="qrSize">二维码大小:</label>
+          <label for="qrSize">二维码大小(单位:px):</label>
           <input 
             type="number" 
             v-model="qrSize" 
@@ -26,39 +26,39 @@
       <!-- 右侧二维码输出区域 -->
       <div v-if="qrCodeSvg" class="qrcode-output">
         <!-- 修改这里，通过 v-html 插入修改后的 SVG -->
-        <div v-html="setQrCodeSize(qrCodeSvg)"></div>
+        <!-- 修改为直接使用 qrCodeSvg -->
+        <div v-html="qrCodeSvg"></div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue'; // 添加watch导入
 import qrcode from 'qrcode-generator';
 
 const inputText = ref('');
 const qrCodeSvg = ref('');
-const qrSize = ref(200); // 默认二维码大小为 200px
+const qrSize = ref(200);
+
 
 const generateQrCode = () => {
-  const typeNumber = 4;
-  const errorCorrectionLevel = 'L';
-  const qr = qrcode(typeNumber, errorCorrectionLevel);
-  qr.addData(inputText.value);
-  qr.make();
-  qrCodeSvg.value = qr.createSvgTag({
-    cellSize: qrSize.value / qr.getModuleCount(),
-    // cellColor: '#000000',
-    margin: 0,
-    // 这里传入的 width 可能不生效，后续手动修改
-    // width: qrSize.value, 
-  });
+  try {
+    const typeNumber = 4;
+    const errorCorrectionLevel = 'L';
+    const qr = qrcode(typeNumber, errorCorrectionLevel);
+    qr.addData(inputText.value);
+    qr.make();
+    qrCodeSvg.value = qr.createSvgTag({
+      cellSize: qrSize.value / qr.getModuleCount(),
+      margin: 0,
+    });
+  } catch (error) {
+    qrCodeSvg.value = '';
+  }
 };
-
-// 新增方法，手动修改 SVG 的 width 和 height 属性
-const setQrCodeSize = (svg: string) => {
-  return svg.replace(/width="\d+"/, `width="${qrSize.value}"`).replace(/height="\d+"/, `height="${qrSize.value}"`);
-};
+// 添加size监听
+watch(qrSize, generateQrCode); // 当尺寸变化时自动重新生成
 </script>
 
 <style scoped>
@@ -71,13 +71,25 @@ const setQrCodeSize = (svg: string) => {
 .tool-wrapper {
   display: flex;
   gap: 20px;
+  height: 70vh;
 }
 
 .input-section {
-  flex: 1;
+  flex: 0 0 50%;
+  width: 50%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  box-sizing: border-box;
+}
+
+.qrcode-output {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .textarea {
