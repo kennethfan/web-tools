@@ -6,6 +6,7 @@
       <li><router-link to="/urlencode" :class="{ 'active': $route.name === 'UrlEncodeTool' }">URL 编解码</router-link></li>
       <li><router-link to="/time-stamp" :class="{ 'active': $route.name === 'TimeStampTool' }">时间戳转换</router-link></li>
       <li><router-link to="/qr-code-generator" :class="{ 'active': $route.name === 'QrCodeGenerator' }">二维码生成</router-link></li>
+      <li><router-link to="/jwt-parser" :class="{ 'active': $route.name === 'JwtParserTool' }">JWT 解析</router-link></li>
     </ul>
   </nav>
 </template>

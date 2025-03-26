@@ -30,6 +30,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/qr-code-generator',
     name: 'QrCodeGenerator',
     component: () => import('../views/QrCodeGenerator.vue')
+  },
+  {
+    path: '/jwt-parser',
+    name: 'JwtParserTool',
+    component: () => import('../views/JwtParserTool.vue'),
+    meta: { title: 'JWT解析' }
   }
 ];
 
