@@ -59,6 +59,7 @@ const generateQrCode = () => {
 };
 // 添加size监听
 watch(qrSize, generateQrCode); // 当尺寸变化时自动重新生成
+watch(inputText, generateQrCode); // 当尺寸变化时自动重新生成
 </script>
 
 <style scoped>
