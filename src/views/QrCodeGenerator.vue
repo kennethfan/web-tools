@@ -42,7 +42,7 @@ const qrCodeSvg = ref('');
 const qrSize = ref(200);
 
 
-const generateQrCode = () => {
+const generateQrCode = async () => {
   try {
     const typeNumber = 4;
     const errorCorrectionLevel = 'L';
@@ -59,7 +59,7 @@ const generateQrCode = () => {
 };
 // 添加size监听
 watch(qrSize, generateQrCode); // 当尺寸变化时自动重新生成
-watch(inputText, generateQrCode); // 当内容变化时自动重新生成
+// watch(inputText, generateQrCode); // 当内容变化时自动重新生成
 </script>
 
 <style scoped>
