@@ -10,14 +10,19 @@
           class="textarea"
         ></textarea>
         <div class="input-group">
-          <label for="qrSize">二维码大小(单位:px):</label>
-          <input 
-            type="number" 
-            v-model="qrSize" 
-            id="qrSize" 
-            min="100" 
-            placeholder="请输入二维码大小，单位:px"
-          />
+          <label for="qrSize">二维码大小：</label>
+          <div class="range-container">
+            <input 
+              type="range"
+              v-model="qrSize"
+              id="qrSize"
+              min="100"
+              max="500"
+              step="10"
+              class="range-input"
+            >
+            <span class="size-indicator">{{ qrSize }}px</span>
+          </div>
         </div>
         <div class="button-group">
           <button @click="generateQrCode" class="action-button">生成二维码</button>
@@ -135,5 +140,51 @@ watch(qrSize, generateQrCode); // 当尺寸变化时自动重新生成
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* 添加滑块样式 */
+.range-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.range-input {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: #e9ecef;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+/* 滑块轨道 */
+.range-input::-webkit-slider-runnable-track {
+  height: 6px;
+  background: #dee2e6;
+  border-radius: 3px;
+}
+
+/* 滑块按钮 */
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #007bff;
+  border-radius: 50%;
+  margin-top: -5px;
+  transition: background 0.3s;
+}
+
+.range-input:hover::-webkit-slider-thumb {
+  background: #0056b3;
+}
+
+.size-indicator {
+  min-width: 60px;
+  text-align: right;
+  font-family: monospace;
+  color: #495057;
 }
 </style>
