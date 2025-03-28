@@ -17,7 +17,6 @@
         v-model="outputText"
         placeholder="输出结果"
         class="textarea"
-        readonly
       ></textarea>
     </div>
   </div>
