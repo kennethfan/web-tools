@@ -11,31 +11,66 @@
       </div>
 
       <div class="output-section">
-        <pre v-if="formattedJson" class="output-pre">{{ formattedJson }}</pre>
+        <vue-json-pretty
+          v-if="!formattedJson.startsWith('❌')"
+          :data="parsedJson"
+          :deep="3"
+          :show-line="true"
+          :show-length="true"
+          :collapsed-on-click-bracket="true"
+          theme="light"
+          class="json-output"
+        />
+        <div v-else class="error-message">
+          {{ formattedJson }}
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import VueJsonPretty from 'vue-json-pretty';
+import 'vue-json-pretty/lib/styles.css';
+import { ref, watch } from 'vue'; // 导入 ref
 
 // 存储用户输入的 JSON 数据
 const inputJson = ref('');
 // 存储格式化后的 JSON 数据
 const formattedJson = ref('');
 
+// 新增解析后的JSON对象
+const parsedJson = ref({});
+
 const formatJson = () => {
   try {
-    // 解析用户输入的 JSON 数据
-    const parsed = JSON.parse(inputJson.value);
-    // 将解析后的数据进行格式化，缩进为 2 个空格
-    formattedJson.value = JSON.stringify(parsed, null, 2);
+    parsedJson.value = JSON.parse(inputJson.value);
+    formattedJson.value = JSON.stringify(parsedJson.value, null, 2);
   } catch (error) {
-    // 若输入的 JSON 数据格式有误，给出错误提示
-    formattedJson.value = '输入的 JSON 数据格式有误';
+    formattedJson.value = '❌ 格式错误：' + error.message;
+    parsedJson.value = {};
   }
 };
+
+const handleCopy = () => {
+  navigator.clipboard.writeText(formattedJson.value);
+};
+
+const handleDownload = () => {
+  const blob = new Blob([formattedJson.value], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `formatted_${Date.now()}.json`;
+  a.click();
+};
+
+// 添加输入内容实时监听
+watch(inputJson, (newVal) => {
+  if (newVal.trim().length > 0) {
+    formatJson();
+  }
+});
 </script>
 
 <style scoped>
@@ -102,15 +137,52 @@ const formatJson = () => {
   background-color: #0056b3;
 }
 
-.output-pre {
-  margin-top: 0px;
-  background-color: #f4f4f4;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  white-space: pre-wrap;
-  height: auto;
-  min-height: 200px;
-  font-size: 16px;
+.json-output {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-height: 60vh;
+  overflow: auto;
+  
+  /* 添加行号样式 */
+  :deep(.vjs-line-number) {
+    color: #6c757d;
+    min-width: 40px;
+    padding-right: 15px;
+    border-right: 1px solid #495057;
+    margin-right: 12px;
+    user-select: none;
+  }
+}
+
+.action-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.copy-button, .download-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #007BFF;
+  color: white;
+}
+
+.copy-button:hover, .download-button:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}
+
+.error-message {
+  color: #dc3545;
+  background: #ffeef0;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 15px;
 }
 </style>
