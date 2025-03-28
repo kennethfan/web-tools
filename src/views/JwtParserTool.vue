@@ -15,11 +15,27 @@
       <div class="result-container">
         <div class="result-section">
           <h3>Header</h3>
-          <pre class="json-display">{{ formattedHeader }}</pre>
+          <vue-json-pretty
+            v-if="!headerError"
+            :data="parsedHeader"
+            :deep="3"
+            :show-length="true"
+            theme="dark"
+            class="json-output"
+          />
+          <div v-else class="error-message">{{ formattedHeader }}</div>
         </div>
         <div class="result-section">
           <h3>Payload</h3>
-          <pre class="json-display">{{ formattedPayload }}</pre>
+          <vue-json-pretty
+            v-if="!payloadError"
+            :data="parsedPayload"
+            :deep="3"
+            :show-length="true"
+            theme="dark"
+            class="json-output"
+          />
+          <div v-else class="error-message">{{ formattedPayload }}</div>
         </div>
       </div>
     </div>
@@ -27,12 +43,19 @@
 </template>
 
 <script lang="ts" setup>
-// 移除highlight.js相关导入
+import VueJsonPretty from 'vue-json-pretty';
+import 'vue-json-pretty/lib/styles.css';
 import { ref } from 'vue';
 
 const jwtInput = ref('');
 const formattedHeader = ref('');
 const formattedPayload = ref('');
+
+// 新增解析后的对象
+const parsedHeader = ref({});
+const parsedPayload = ref({});
+const headerError = ref(false);
+const payloadError = ref(false);
 
 const parseJwt = () => {
   try {
@@ -44,20 +67,61 @@ const parseJwt = () => {
 
     const parsePart = (encoded: string) => {
       const decoded = atob(encoded.replace(/-/g, '+').replace(/_/g, '/'));
-      return JSON.stringify(JSON.parse(decoded), null, 2);
+      const parsed = JSON.parse(decoded);
+      return {
+        string: JSON.stringify(parsed, null, 2),
+        object: parsed
+      };
     };
 
-    formattedHeader.value = parsePart(headerEncoded);
-    formattedPayload.value = parsePart(payloadEncoded);
+    const headerResult = parsePart(headerEncoded);
+    const payloadResult = parsePart(payloadEncoded);
+    
+    formattedHeader.value = headerResult.string;
+    parsedHeader.value = headerResult.object;
+    formattedPayload.value = payloadResult.string;
+    parsedPayload.value = payloadResult.object;
+    
+    headerError.value = false;
+    payloadError.value = false;
     
   } catch (error) {
-    formattedHeader.value = `解析错误: ${error instanceof Error ? error.message : '未知错误'}`;
+    // 错误处理
+    formattedHeader.value = `❌ 解析错误: ${error instanceof Error ? error.message : '未知错误'}`;
     formattedPayload.value = '';
+    headerError.value = true;
+    payloadError.value = true;
   }
 };
 </script>
 
 <style scoped>
+/* 新增样式复用 JSON 格式化工具的样式 */
+.json-output {
+  flex: 1;
+  padding: 15px;
+  background-color: #1e1e1e;
+  border-radius: 6px;
+  color: #d4d4d4;
+  font-family: 'Fira Code', monospace;
+  overflow: auto;
+  max-height: 300px;
+}
+
+.error-message {
+  color: #ff5555;
+  background-color: #2d2d2d;
+  padding: 15px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+}
+
+.result-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .tool-container {
   height: 100%;
 }

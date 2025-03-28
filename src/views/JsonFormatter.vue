@@ -47,7 +47,8 @@ const formatJson = () => {
     parsedJson.value = JSON.parse(inputJson.value);
     formattedJson.value = JSON.stringify(parsedJson.value, null, 2);
   } catch (error) {
-    formattedJson.value = '❌ 格式错误：' + error.message;
+    console.log('json解析错误', error);
+    formattedJson.value = '❌ 格式错误';
     parsedJson.value = {};
   }
 };
