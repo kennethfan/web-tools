@@ -90,14 +90,6 @@ watch(qrSize, generateQrCode); // 当尺寸变化时自动重新生成
   box-sizing: border-box;
 }
 
-.qrcode-output {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .textarea {
   flex: 1;
   padding: 15px;
@@ -139,7 +131,6 @@ watch(qrSize, generateQrCode); // 当尺寸变化时自动重新生成
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 /* 添加滑块样式 */
