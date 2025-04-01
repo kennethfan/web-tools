@@ -20,7 +20,7 @@ const route = useRoute();
 <style scoped>
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 20px;
   list-style-type: none;
   padding: 0;
@@ -29,7 +29,7 @@ const route = useRoute();
 .tool-grid li {
   background-color: #f4f4f4;
   border-radius: 8px;
-  padding: 20px;
+  padding: 20px 10px;
   text-align: center;
   transition: all 0.3s ease; /* 添加过渡效果 */
 }
