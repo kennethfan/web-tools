@@ -36,6 +36,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'JwtParserTool',
     component: () => import('../views/JwtParserTool.vue'),
     meta: { title: 'JWT解析' }
+  },
+  {
+    path: '/rmb-converter',
+    name: 'RmbConverter',
+    component: () => import('../views/RmbConverter.vue'),
+    meta: { title: '人民币转换' }
   }
 ];
 
