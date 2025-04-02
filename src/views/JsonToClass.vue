@@ -13,6 +13,7 @@
           <option value="typescript">TypeScript</option>
         </select>
         <button @click="convertJson" class="convert-button">转换</button>
+        <button @click="copyToClipboard" class="copy-button">复制</button>
       </div>
 
       <div class="output-section">
@@ -167,10 +168,18 @@ const getTypeScriptType = (value: any): string => {
 const capitalizeFirstLetter = (str: string): string => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
+
+const copyToClipboard = async () => {
+  try {
+    await navigator.clipboard.writeText(outputClass.value);
+    alert('代码已复制到剪贴板');
+  } catch (err) {
+    alert('复制失败，请手动复制');
+  }
+};
 </script>
 
 <style scoped>
-/* 复用现有样式 */
 .json-to-class-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -258,5 +267,54 @@ code {
   display: block;
   white-space: pre-wrap;
   text-align: left;
+}
+
+.copy-button {
+  padding: 12px 24px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.copy-button:hover {
+  background-color: #218838;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #323232;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: fadeInOut 2s ease-in-out;
+  z-index: 1000;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
 }
 </style>
