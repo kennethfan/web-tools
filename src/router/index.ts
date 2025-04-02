@@ -42,6 +42,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'RmbConverter',
     component: () => import('../views/RmbConverter.vue'),
     meta: { title: '人民币转换' }
+  },
+  {
+    path: '/json-to-class',
+    name: 'JsonToClass',
+    component: () => import('../views/JsonToClass.vue'),
+    meta: { title: 'JSON转类定义' }
   }
 ];
 
