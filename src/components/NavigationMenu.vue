@@ -9,6 +9,11 @@
       <li><router-link to="/jwt-parser" :class="{ 'active': $route.name === 'JwtParserTool' }">JWT 解析</router-link></li>
       <li><router-link to="/rmb-converter" :class="{ 'active': $route.name === 'RmbConverter' }">人民币转换</router-link></li>
       <li><router-link to="/json-to-class" :class="{ 'active': $route.name === 'JsonToClass' }">JSON转类定义</router-link></li>
+      <li>
+        <router-link to="/config-converter" :class="{ 'active': $route.name === 'ConfigConverter' }">
+          配置文件互转
+        </router-link>
+      </li>
     </ul>
   </nav>
 </template>
@@ -21,7 +26,7 @@ const route = useRoute();
 <style scoped>
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 20px;
   list-style-type: none;
   padding: 0;

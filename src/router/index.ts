@@ -48,6 +48,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'JsonToClass',
     component: () => import('../views/JsonToClass.vue'),
     meta: { title: 'JSON转类定义' }
+  },
+  {
+    path: '/config-converter',
+    name: 'ConfigConverter',
+    component: () => import('../views/ConfigConverter.vue'),
+    meta: { title: '配置文件互转' }
   }
 ];
 

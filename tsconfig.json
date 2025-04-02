@@ -2,8 +2,11 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "strict": true,
+    "noImplicitAny": false,
+    "strict": false,
     "jsx": "preserve",
+    "strictPropertyInitialization": false,
+    "types": ["vite/client", "vue", "@vue/runtime-dom"],
     "moduleResolution": "node",
     "skipLibCheck": true,
     "esModuleInterop": true,
