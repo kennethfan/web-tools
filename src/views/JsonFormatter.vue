@@ -146,16 +146,16 @@ watch(inputJson, (newVal) => {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   max-height: 60vh;
   overflow: auto;
+}
   
-  /* 添加行号样式 */
-  :deep(.vjs-line-number) {
-    color: #6c757d;
-    min-width: 40px;
-    padding-right: 15px;
-    border-right: 1px solid #495057;
-    margin-right: 12px;
-    user-select: none;
-  }
+/* 添加行号样式 */
+:deep(.vjs-line-number) {
+  color: #6c757d;
+  min-width: 40px;
+  padding-right: 15px;
+  border-right: 1px solid #495057;
+  margin-right: 12px;
+  user-select: none;
 }
 
 .action-buttons {

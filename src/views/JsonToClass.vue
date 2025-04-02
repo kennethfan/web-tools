@@ -158,11 +158,13 @@ const capitalizeFirstLetter = (str: string): string => {
   display: flex;
   gap: 20px;
   height: 500px;
+  align-items: stretch;
 }
 
 .input-section,
 .output-section {
   flex: 1;
+  min-width: 0; /* 防止内容溢出 */
 }
 
 .input-textarea,
@@ -182,11 +184,17 @@ const capitalizeFirstLetter = (str: string): string => {
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+  min-width: 150px; /* 设置最小宽度 */
+  padding: 0 10px; /* 添加内边距 */
 }
 
 .language-select {
-  padding: 8px;
-  border-radius: 4px;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: white;
+  font-size: 14px;
+  width: 100%; /* 使选择框宽度充满容器 */
 }
 
 .convert-button {
@@ -197,6 +205,7 @@ const capitalizeFirstLetter = (str: string): string => {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s;
+  width: 100%; /* 使按钮宽度充满容器 */
 }
 
 .convert-button:hover {
