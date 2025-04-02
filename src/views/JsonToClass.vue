@@ -16,14 +16,24 @@
       </div>
 
       <div class="output-section">
-        <textarea v-model="outputClass" class="output-textarea" readonly></textarea>
+        <pre><code id="code" :class="targetLanguage">{{ outputClass }}</code></pre>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/default.min.css';
+import java from 'highlight.js/lib/languages/java';
+import go from 'highlight.js/lib/languages/go';
+import typescript from 'highlight.js/lib/languages/typescript';
+
+// 注册语言
+hljs.registerLanguage('java', java);
+hljs.registerLanguage('go', go);
+hljs.registerLanguage('typescript', typescript);
 
 const inputJson = ref('');
 const outputClass = ref('');
@@ -33,6 +43,19 @@ const convertJson = () => {
   try {
     const jsonObj = JSON.parse(inputJson.value);
     outputClass.value = generateClassDefinition(jsonObj, targetLanguage.value);
+    nextTick(() => {
+      const codeElement = document.getElementById('code');
+      if (codeElement) {
+        // 先移除所有highlight相关的class
+        codeElement.className = targetLanguage.value;
+        // 强制重新渲染
+        codeElement.innerHTML = outputClass.value;
+        // 移除属性
+        codeElement.removeAttribute('data-highlighted');
+      }
+      // 重新应用highlight
+      hljs.highlightElement(codeElement!);
+    });
   } catch (error) {
     outputClass.value = '❌ 无效的JSON格式';
   }
@@ -210,5 +233,29 @@ const capitalizeFirstLetter = (str: string): string => {
 
 .convert-button:hover {
   background-color: #0056b3;
+}
+
+.output-section {
+  flex: 1;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  overflow: auto;
+}
+
+pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  display: block;
+  white-space: pre-wrap;
+  text-align: left;
 }
 </style>
