@@ -209,6 +209,7 @@ const capitalizeFirstLetter = (str: string): string => {
   gap: 20px;
   min-width: 150px; /* 设置最小宽度 */
   padding: 0 10px; /* 添加内边距 */
+  margin-left: 30px;
 }
 
 .language-select {
