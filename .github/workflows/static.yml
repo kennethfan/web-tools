@@ -41,8 +41,8 @@ jobs:
         mv dist docs
         cp docs/index.html docs/404.html
         cp src/assets/vue.svg docs/assets/vue.svg
-        git add docs
         touch docs/.nojekyll
+        git add docs
         git commit -m "Updated By Github Actions With Build ${{github.run_number}} of ${{github.workflow}} For Github Pages"
         git push -f --set-upstream origin gh-pages 
  
