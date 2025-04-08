@@ -30,7 +30,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { parse, stringify } from 'yaml';
-import PropertiesReader from 'properties-reader';
+// import PropertiesReader from 'properties-reader';
 
 const inputContent = ref('');
 const outputContent = ref('');
