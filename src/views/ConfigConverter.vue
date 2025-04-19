@@ -30,7 +30,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { parse, stringify } from 'yaml';
-// import PropertiesReader from 'properties-reader';
 
 const inputContent = ref('');
 const outputContent = ref('');
@@ -47,28 +46,6 @@ const convertPropertiesToString = (obj: Record<string, any>, prefix = '') => {
       return `${fullKey}=${value}`;
     })
     .join('\n');
-};
-
-const convertPropertiesToObject = (properties: string) => {
-  const reader = PropertiesReader(properties);
-  const result: Record<string, any> = {};
-  
-  reader.each((key, value) => {
-    const keys = key.split('.');
-    let current = result;
-    
-    for (let i = 0; i < keys.length - 1; i++) {
-      const k = keys[i];
-      if (!current[k]) {
-        current[k] = {};
-      }
-      current = current[k];
-    }
-    
-    current[keys[keys.length - 1]] = value;
-  });
-  
-  return result;
 };
 
 const parseProperties = (input: string) => {
