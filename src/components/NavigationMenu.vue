@@ -9,6 +9,7 @@
       <li><router-link to="/jwt-parser" :class="{ 'active': $route.name === 'JwtParserTool' }">JWT 解析</router-link></li>
       <li><router-link to="/rmb-converter" :class="{ 'active': $route.name === 'RmbConverter' }">人民币转换</router-link></li>
       <li><router-link to="/json-to-class" :class="{ 'active': $route.name === 'JsonToClass' }">JSON转类定义</router-link></li>
+      <li><router-link to="/image-base64" :class="{ 'active': $route.name === 'ImageBase64Tool' }">图片Base64转换</router-link></li>
       <li>
         <router-link to="/config-converter" :class="{ 'active': $route.name === 'ConfigConverter' }">
           配置文件互转

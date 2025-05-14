@@ -54,6 +54,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'ConfigConverter',
     component: () => import('../views/ConfigConverter.vue'),
     meta: { title: '配置文件互转' }
+  },
+  {
+    path: '/image-base64',
+    name: 'ImageBase64Tool',
+    component: () => import('../views/ImageBase64Tool.vue'),
+    meta: { title: '图片Base64转换' }
   }
 ];
 
