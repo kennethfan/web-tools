@@ -26,6 +26,11 @@
           Pornhub风格
         </router-link>
       </li>
+      <li>
+        <router-link to="/svg-viewer" :class="{ 'active': $route.name === 'SvgViewer' }">
+          SVG展示与转换
+        </router-link>
+      </li>
     </ul>
   </nav>
 </template>

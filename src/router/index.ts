@@ -78,6 +78,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'PornhubStyleGenerator',
     component: () => import('../views/PornhubStyleGenerator.vue'),
     meta: { title: 'Pornhub风格图片生成' }
+  },
+  {
+    path: '/svg-viewer',
+    name: 'SvgViewer',
+    component: () => import('../views/SvgViewer.vue'),
+    meta: { title: 'SVG展示与转换' }
   }
 ];
 
