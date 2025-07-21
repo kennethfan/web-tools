@@ -66,6 +66,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'AvatarGenerator',
     component: () => import('../views/AvatarGenerator.vue'),
     meta: { title: '姓名头像生成' }
+  },
+  {
+    path: '/qr-code-scanner',
+    name: 'QrCodeScanner',
+    component: () => import('../views/QrCodeScanner.vue'),
+    meta: { title: '二维码识别' }
   }
 ];
 
