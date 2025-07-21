@@ -1,0 +1,1 @@
+import{d as o,c as a,a as t,o as s,_ as n}from"./index-CiOXiSB6.js";const r=o({__name:"Home",setup(_){return(c,e)=>(s(),a("div",null,e[0]||(e[0]=[t("h1",null,"工具列表",-1)])))}}),l=n(r,[["__scopeId","data-v-a21e1b6e"]]);export{l as default};
