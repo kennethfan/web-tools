@@ -72,6 +72,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'QrCodeScanner',
     component: () => import('../views/QrCodeScanner.vue'),
     meta: { title: '二维码识别' }
+  },
+  {
+    path: '/pornhub-style',
+    name: 'PornhubStyleGenerator',
+    component: () => import('../views/PornhubStyleGenerator.vue'),
+    meta: { title: 'Pornhub风格图片生成' }
   }
 ];
 
