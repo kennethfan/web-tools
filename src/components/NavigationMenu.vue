@@ -21,6 +21,11 @@
           姓名头像
         </router-link>
       </li>
+      <li>
+        <router-link to="/pornhub-style" :class="{ 'active': $route.name === 'PornhubStyleGenerator' }">
+          Pornhub风格
+        </router-link>
+      </li>
     </ul>
   </nav>
 </template>
