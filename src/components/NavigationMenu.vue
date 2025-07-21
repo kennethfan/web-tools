@@ -15,6 +15,11 @@
           配置文件互转
         </router-link>
       </li>
+      <li>
+        <router-link to="/avatar-generator" :class="{ 'active': $route.name === 'AvatarGenerator' }">
+          姓名头像
+        </router-link>
+      </li>
     </ul>
   </nav>
 </template>
@@ -27,7 +32,7 @@ const route = useRoute();
 <style scoped>
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 20px;
   list-style-type: none;
   padding: 0;

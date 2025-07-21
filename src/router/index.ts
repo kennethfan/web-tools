@@ -60,6 +60,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'ImageBase64Tool',
     component: () => import('../views/ImageBase64Tool.vue'),
     meta: { title: '图片Base64转换' }
+  },
+  {
+    path: '/avatar-generator',
+    name: 'AvatarGenerator',
+    component: () => import('../views/AvatarGenerator.vue'),
+    meta: { title: '姓名头像生成' }
   }
 ];
 
