@@ -135,8 +135,11 @@ const downloadAvatar = () => {
   canvas.width = size;
   canvas.height = size;
   
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d', { alpha: true });
   if (!ctx) return;
+  
+  // 清除画布，确保背景透明
+  ctx.clearRect(0, 0, size, size);
   
   // 创建圆形裁剪区域
   ctx.beginPath();
