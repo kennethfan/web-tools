@@ -138,6 +138,12 @@ const downloadAvatar = () => {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
   
+  // 创建圆形裁剪区域
+  ctx.beginPath();
+  ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+  ctx.closePath();
+  ctx.clip();
+  
   // 绘制背景
   ctx.fillStyle = backgroundColors[selectedColorIndex.value];
   ctx.fillRect(0, 0, size, size);
@@ -167,6 +173,12 @@ const copyToClipboard = async () => {
   
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
+  
+  // 创建圆形裁剪区域
+  ctx.beginPath();
+  ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+  ctx.closePath();
+  ctx.clip();
   
   // 绘制背景
   ctx.fillStyle = backgroundColors[selectedColorIndex.value];
