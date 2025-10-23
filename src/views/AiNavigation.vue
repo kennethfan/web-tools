@@ -3,21 +3,9 @@
     <h1 class="section-title">AI 工具导航</h1>
     <div class="ai-tools-grid">
       <div class="ai-tool-card">
-        <a href="https://tongyi.aliyun.com/" target="_blank" rel="noopener noreferrer">
-          <h3>通义千问</h3>
-          <p>阿里巴巴开发的大型语言模型，提供自然语言处理和对话能力</p>
-        </a>
-      </div>
-      <div class="ai-tool-card">
-        <a href="https://yiyan.baidu.com/" target="_blank" rel="noopener noreferrer">
-          <h3>文心一言</h3>
-          <p>百度推出的人工智能语言模型，支持多种自然语言处理任务</p>
-        </a>
-      </div>
-      <div class="ai-tool-card">
-        <a href="https://www.doubao.com/" target="_blank" rel="noopener noreferrer">
-          <h3>豆包</h3>
-          <p>字节跳动推出的AI助手，提供对话和创作功能</p>
+        <a href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer">
+          <h3>ChatGPT</h3>
+          <p>OpenAI开发的先进对话AI模型，支持自然语言理解和生成</p>
         </a>
       </div>
       <div class="ai-tool-card">
@@ -27,9 +15,39 @@
         </a>
       </div>
       <div class="ai-tool-card">
+        <a href="https://tongyi.aliyun.com/" target="_blank" rel="noopener noreferrer">
+          <h3>通义千问</h3>
+          <p>阿里巴巴开发的大型语言模型，提供自然语言处理和对话能力</p>
+        </a>
+      </div>
+      <div class="ai-tool-card">
+        <a href="https://www.doubao.com/" target="_blank" rel="noopener noreferrer">
+          <h3>豆包</h3>
+          <p>字节跳动推出的AI助手，提供对话和创作功能</p>
+        </a>
+      </div>
+      <div class="ai-tool-card">
+        <a href="https://yuanbao.tencent.com/" target="_blank" rel="noopener noreferrer">
+          <h3>元宝</h3>
+          <p>腾讯元宝是基于腾讯混元大模型的AI应用,可以帮你写作绘画文案翻译编程搜索阅读总结的全能助手</p>
+        </a>
+      </div>
+      <div class="ai-tool-card">
         <a href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer">
           <h3>DeepSeek</h3>
           <p>专注于代码和文本生成的AI模型，提供强大的编程辅助功能</p>
+        </a>
+      </div>
+      <div class="ai-tool-card">
+        <a href="https://kimi.com/" target="_blank" rel="noopener noreferrer">
+          <h3>Kimi</h3>
+          <p>Kimi K2 是我们最新升级的 AI 助手,擅长推理、编程和调用工具,帮助你高效解决复杂问题。</p>
+        </a>
+      </div>
+      <div class="ai-tool-card">
+        <a href="https://yiyan.baidu.com/" target="_blank" rel="noopener noreferrer">
+          <h3>文心一言</h3>
+          <p>百度推出的人工智能语言模型，支持多种自然语言处理任务</p>
         </a>
       </div>
     </div>
