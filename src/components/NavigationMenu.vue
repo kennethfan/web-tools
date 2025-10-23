@@ -31,35 +31,10 @@
           SVG展示与转换
         </router-link>
       </li>
-      
-      <!-- AI 导航区域 -->
-      <li class="ai-nav-header">
-        <div class="section-title">AI 工具导航</div>
-      </li>
       <li>
-        <a href="https://tongyi.aliyun.com/" target="_blank" rel="noopener noreferrer">
-          通义千问
-        </a>
-      </li>
-      <li>
-        <a href="https://yiyan.baidu.com/" target="_blank" rel="noopener noreferrer">
-          文心一言
-        </a>
-      </li>
-      <li>
-        <a href="https://www.doubao.com/" target="_blank" rel="noopener noreferrer">
-          豆包
-        </a>
-      </li>
-      <li>
-        <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">
-          Gemini
-        </a>
-      </li>
-      <li>
-        <a href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer">
-          DeepSeek
-        </a>
+        <router-link to="/ai-navigation" :class="{ 'active': $route.name === 'AiNavigation' }">
+          AI工具导航
+        </router-link>
       </li>
     </ul>
   </nav>
