@@ -31,6 +31,36 @@
           SVG展示与转换
         </router-link>
       </li>
+      
+      <!-- AI 导航区域 -->
+      <li class="ai-nav-header">
+        <div class="section-title">AI 工具导航</div>
+      </li>
+      <li>
+        <a href="https://tongyi.aliyun.com/" target="_blank" rel="noopener noreferrer">
+          通义千问
+        </a>
+      </li>
+      <li>
+        <a href="https://yiyan.baidu.com/" target="_blank" rel="noopener noreferrer">
+          文心一言
+        </a>
+      </li>
+      <li>
+        <a href="https://www.doubao.com/" target="_blank" rel="noopener noreferrer">
+          豆包
+        </a>
+      </li>
+      <li>
+        <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">
+          Gemini
+        </a>
+      </li>
+      <li>
+        <a href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer">
+          DeepSeek
+        </a>
+      </li>
     </ul>
   </nav>
 </template>
@@ -77,5 +107,31 @@ const route = useRoute();
 
 .tool-grid li a:hover {
   color: #0056b3; /* 鼠标悬停时链接文字颜色 */
+}
+
+/* AI导航区域样式 */
+.ai-nav-header {
+  grid-column: 1 / -1;
+  margin-top: 20px;
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #007BFF;
+}
+
+/* AI工具链接特殊样式 */
+.tool-grid li a[target="_blank"] {
+  color: #28a745;
+}
+
+.tool-grid li a[target="_blank"]:hover {
+  color: #218838;
 }
 </style>
