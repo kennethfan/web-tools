@@ -29,7 +29,7 @@
       <div class="ai-tool-card">
         <a href="https://yuanbao.tencent.com/" target="_blank" rel="noopener noreferrer">
           <h3>元宝</h3>
-          <p>腾讯元宝是基于腾讯混元大模型的AI应用,可以帮你写作绘画文案翻译编程搜索阅读总结的全能助手</p>
+          <p>腾讯元宝可以帮你写作绘画文案翻译编程搜索阅读总结的全能助手</p>
         </a>
       </div>
       <div class="ai-tool-card">
@@ -41,7 +41,25 @@
       <div class="ai-tool-card">
         <a href="https://kimi.com/" target="_blank" rel="noopener noreferrer">
           <h3>Kimi</h3>
-          <p>Kimi K2 是我们最新升级的 AI 助手,擅长推理、编程和调用工具,帮助你高效解决复杂问题。</p>
+          <p>Kimi K2擅长推理、编程和调用工具,帮助你高效解决复杂问题。</p>
+        </a>
+      </div>
+      <div class="ai-tool-card">
+        <a href="https://grok.com/" target="_blank" rel="noopener noreferrer">
+          <h3>grok</h3>
+          <p>Grok是由马斯克旗下xAI公司开发的人工智能大模型。</p>
+        </a>
+      </div>
+      <div class="ai-tool-card">
+        <a href="https://jimeng.jianying.com/" target="_blank" rel="noopener noreferrer">
+          <h3>即梦</h3>
+          <p>即梦AI，将抽象的思路转化为视觉作品。</p>
+        </a>
+      </div>
+      <div class="ai-tool-card">
+        <a href="https://www.coze.cn/" target="_blank" rel="noopener noreferrer">
+          <h3>扣子</h3>
+          <p>扣子空间是你和 AI Agent 协同办公的最佳场所。</p>
         </a>
       </div>
       <div class="ai-tool-card">
