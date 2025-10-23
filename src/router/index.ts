@@ -84,6 +84,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'SvgViewer',
     component: () => import('../views/SvgViewer.vue'),
     meta: { title: 'SVG展示与转换' }
+  },
+  {
+    path: '/ai-navigation',
+    name: 'AiNavigation',
+    component: () => import('../views/AiNavigation.vue'),
+    meta: { title: 'AI工具导航' }
   }
 ];
 
