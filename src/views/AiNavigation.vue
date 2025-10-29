@@ -63,6 +63,12 @@
         </a>
       </div>
       <div class="ai-tool-card">
+        <a href="https://www.yileai.cn/" target="_blank" rel="noopener noreferrer">
+          <h3>移乐AI</h3>
+          <p>图片视频处理工具</p>
+        </a>
+      </div>
+      <div class="ai-tool-card">
         <a href="https://yiyan.baidu.com/" target="_blank" rel="noopener noreferrer">
           <h3>文心一言</h3>
           <p>百度推出的人工智能语言模型，支持多种自然语言处理任务</p>
