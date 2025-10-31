@@ -69,6 +69,12 @@
         </a>
       </div>
       <div class="ai-tool-card">
+        <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">
+          <h3>perplexity</h3>
+          <p>回答带来源的AI</p>
+        </a>
+      </div>
+      <div class="ai-tool-card">
         <a href="https://yiyan.baidu.com/" target="_blank" rel="noopener noreferrer">
           <h3>文心一言</h3>
           <p>百度推出的人工智能语言模型，支持多种自然语言处理任务</p>
