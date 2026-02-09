@@ -31,3 +31,4 @@
 - TypeScript
 - Vite
 - Highlight.js
+- npm / pnpm
